@@ -816,7 +816,7 @@ async def initkill_list():
 
 	try :
 		contents = repo.get_contents("kill_list.ini")
-		repo.update_file(contents.path, "kill list", '-----척살명단-----', contents.sha)
+		repo.update_file(contents.path, "kill list", '-----kill list-----', contents.sha)
 		print ('<킬리스트 초기화>')
 	except GithubException as e :
 		print ('save error!!')
@@ -829,7 +829,7 @@ async def initkill_list():
 async def kill_list_Save():
 	global kill_Data
 
-	output_kill_list = '-----척살명단-----\n'
+	output_kill_list = '-----kill list-----\n'
 	for i in range(len(kill_Data)):
 		if kill_Data[i][0] != '':
 			output_kill_list += str(kill_Data[i][0]) + ' ' + str(kill_Data[i][1]) + '\n'
@@ -1088,7 +1088,7 @@ while True:
 
 							for i in range(len(kill_Data)):
 								if kill_Data[i][0] != '':
-									kill_output += ':skull_crossbones: ' + str(kill_Data[i][0]) + ' : ' + str(kill_Data[i][1]) + '번 따히!\n'
+									kill_output += ':skull_crossbones: ' + str(kill_Data[i][0]) + ' : ' + str(kill_Data[i][1]) + 'kai die!\n'
 
 							if kill_output != '' :
 								embed = discord.Embed(
@@ -1124,7 +1124,7 @@ while True:
 									kill_Data.append(tmp_fk)
 									tmp_fk = []
 								embed = discord.Embed(
-										description= ':skull_crossbones:' + sayMessage + ' 따히! [' + str(abc) + '번]\n',
+										description= ':skull_crossbones:' + sayMessage + ' die! [' + str(abc) + 'kai]\n',
 										color=0xff00ff
 										)
 								await msg.channel.send(embed=embed, tts=False)
