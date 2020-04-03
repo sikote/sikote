@@ -1780,8 +1780,8 @@ while True:
 						setting_val += '사다리채널 : ' + client.get_channel(int(basicSetting[8])).name + '\n'
 					if basicSetting[11] != "" :
 						setting_val += '정산채널 : ' + client.get_channel(int(basicSetting[11])).name + '\n'
-					setting_val += '보스젠알림시간1 : ' + basicSetting[1] + ' 분 전\n'
-					setting_val += '보스젠알림시간2 : ' + basicSetting[3] + ' 분 전\n'
+					setting_val += '보스젠알림시간1 : ' + basicSetting[1] + ' minute\n'
+					setting_val += '보스젠알림시간2 : ' + basicSetting[3] + ' minute\n'
 					setting_val += '보스멍확인시간 : ' + basicSetting[2] + ' 분 후\n'
 					embed = discord.Embed(
 							title = "----- 설정내용 -----",
