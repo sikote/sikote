@@ -1970,12 +1970,12 @@ while True:
 							tmp_boss_information[0] = '``` ```'
 
 						embed = discord.Embed(
-								title = "----- 보스탐 정보 -----",
+								title = "----- boss time -----",
 								description= boss_information[0],
 								color=0x0000ff
 								)
 						embed.add_field(
-								name="----- 미예약 보스 -----",
+								name="----- 未入力 -----",
 								value= tmp_boss_information[0],
 								inline = False
 								)
