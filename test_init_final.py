@@ -1253,14 +1253,14 @@ while True:
 
 			for i in range(bossNum):
 				################ 보스 컷처리 ################ 
-				if message.content.startswith(bossData[i][0] +'컷'):
+				if message.content.startswith(bossData[i][0] +'cut'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] +'컷'
+					tmp_msg = bossData[i][0] +'cut'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -1531,8 +1531,8 @@ while True:
 					command_list += ','.join(command[19]) + ' [할말]\n\n'     #!상태
 					command_list += ','.join(command[20]) + '\n'     #보스탐
 					command_list += ','.join(command[21]) + '\n'     #!보스탐
-					command_list += '[보스명]컷 또는 [보스명]컷 0000, 00:00\n'     
-					command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
+					command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'     
+					command_list += '[보스명]no 또는 [보스명]no 0000, 00:00\n'     
 					command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
 					command_list += '[보스명]삭제\n'     
 					command_list += '[보스명]메모 [할말]\n'
@@ -1543,7 +1543,7 @@ while True:
 							)
 					embed.add_field(
 							name="----- 추가기능 -----",
-							value= '```[보스명]컷/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능```'
+							value= '```[보스명]cut/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능```'
 							)
 					await client.get_channel(channel).send( embed=embed, tts=False)
 
