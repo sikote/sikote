@@ -593,7 +593,7 @@ async def task():
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 									await client.get_channel(channel).send("```" +  bossData[i][0] + ' 미입력 됐습니다.```', tts=False)
 									embed = discord.Embed(
-										description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+										description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 										color=0xff0000
 										)
 									await client.get_channel(channel).send(embed=embed, tts=False)
@@ -609,7 +609,7 @@ async def task():
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 									await client.get_channel(channel).send("```" + bossData[i][0] + ' 멍 입니다.```')
 									embed = discord.Embed(
-										description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+										description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 										color=0xff0000
 										)
 									await client.get_channel(channel).send(embed=embed, tts=False)
@@ -1302,7 +1302,7 @@ while True:
 					tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 					tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 					embed = discord.Embed(
-							description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+							description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 							color=0xff0000
 							)
 					await client.get_channel(channel).send(embed=embed, tts=False)
@@ -1355,7 +1355,7 @@ while True:
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 						embed = discord.Embed(
-								description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+								description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 								color=0xff0000
 								)
 						await client.get_channel(channel).send(embed=embed, tts=False)
@@ -1374,12 +1374,12 @@ while True:
 							tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
-									description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+									description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 									color=0xff0000
 									)
 							await client.get_channel(channel).send(embed=embed, tts=False)
 						else:
-							await client.get_channel(channel).send('```' + bossData[i][0] + '탐이 아직 안됐습니다. 다음 ' + bossData[i][0] + '탐 [' + tmp_bossTimeString[i] + '] 입니다```', tts=False)
+							await client.get_channel(channel).send('```' + bossData[i][0] + '탐이 아직 안됐습니다. next ' + bossData[i][0] + 'time [' + tmp_bossTimeString[i] + '] です```', tts=False)
 
 					
 			################ 예상 보스 타임 입력 ################ 
@@ -1420,7 +1420,7 @@ while True:
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 						embed = discord.Embed(
-								description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
+								description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'です```',
 								color=0xff0000
 								)
 						await client.get_channel(channel).send(embed=embed, tts=False)
