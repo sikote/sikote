@@ -800,7 +800,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 		result_ladder = random.sample(ladderlist, number)
 		result_ladderSTR = ','.join(map(str, result_ladder))
 		embed = discord.Embed(
-			title = "----- 당첨! -----",
+			title = "----- `congratulation! -----",
 			description= '```' + result_ladderSTR + '```',
 			color=0xff00ff
 			)
