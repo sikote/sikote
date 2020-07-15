@@ -1534,7 +1534,7 @@ while True:
 					command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'     
 					command_list += '[보스명]no 또는 [보스명]no 0000, 00:00\n'     
 					command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
-					command_list += '[보스명]삭제\n'     
+					command_list += '[보스명]del\n'     
 					command_list += '[보스명]메모 [할말]\n'
 					embed = discord.Embed(
 							title = "----- 명령어 -----",
