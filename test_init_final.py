@@ -1429,7 +1429,7 @@ while True:
 						
 				################ 보스타임 삭제 ################
 					
-				if message.content == bossData[i][0] +'삭제':
+				if message.content == bossData[i][0] +'del':
 					bossTime[i] = datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					tmp_bossTime[i] =  datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					bossTimeString[i] = '99:99:99'
