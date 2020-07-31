@@ -226,7 +226,6 @@ def init():
 		command.append(fc)
 		fc = []
 		#command.append(command_inputData[i][12:].rstrip('\r'))     #command[0] ~ [24] : 명령어
-		
 
 	################## 척살 명단 ###########################
 	for i in range(len(kill_inputData)):
@@ -795,30 +794,6 @@ async def JointheVC(VCchannel, TXchannel):
 	else:
 		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
 
-	################ 킬삭제 ################ 
-					for command24 in command[24] :	
-						if message.content.startswith(command24.strip()+' '):
-							tmp_sayMessage = message.content
-							sayMessage = tmp_sayMessage[len(command24.strip())+1:]
-
-							tmp_fk = []
-							indexchk = 0
-
-							if sayMessage != ' ':
-								for i in range(len(kill_Data)):
-									if sayMessage == kill_Data[i][0]:
-										indexchk = i + 1
-										
-								if indexchk != 0:
-									del(kill_Data[indexchk-1])
-									await msg.channel.send( '```<' + sayMessage + '> 킬 목록 삭제완료!\n```', tts=False)
-								else :				
-									await msg.channel.send( '```킬 목록에 등록되어 있지 않습니다!\n```', tts=False)
-							else:
-								await msg.channel.send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
-		else :
-			message = await client.get_channel(channel).fetch_message(msg.id)
-		
 #사다리함수		
 async def LadderFunc(number, ladderlist, channelVal):
 	if number < len(ladderlist):
@@ -1156,7 +1131,29 @@ while True:
 							else:
 								await msg.channel.send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
 
+					################ 킬삭제 ################ 
+					for command24 in command[24] :	
+						if message.content.startswith(command24.strip()+' '):
+							tmp_sayMessage = message.content
+							sayMessage = tmp_sayMessage[len(command24.strip())+1:]
 
+							tmp_fk = []
+							indexchk = 0
+
+							if sayMessage != ' ':
+								for i in range(len(kill_Data)):
+									if sayMessage == kill_Data[i][0]:
+										indexchk = i + 1
+										
+								if indexchk != 0:
+									del(kill_Data[indexchk-1])
+									await msg.channel.send( '```<' + sayMessage + '> 킬 목록 삭제완료!\n```', tts=False)
+								else :				
+									await msg.channel.send( '```킬 목록에 등록되어 있지 않습니다!\n```', tts=False)
+							else:
+								await msg.channel.send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
+		else :
+			message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
 			for command2 in command[2] :	
@@ -1527,14 +1524,13 @@ while True:
 					command_list += ','.join(command[22]) + '\n'     #!킬초기화
 					command_list += ','.join(command[23]) + '\n'     #!킬횟수 확인
 					command_list += ','.join(command[23]) + ' [아이디]\n'     #!킬
-					#command_list += ','.join(command[24]) + ' [아이디]\n'     #!킬삭제
+					command_list += ','.join(command[24]) + ' [아이디]\n'     #!킬삭제
 					command_list += ','.join(command[18]) + '\n'     #!공지
 					command_list += ','.join(command[18]) + ' [공지내용]\n'     #!공지
 					command_list += ','.join(command[18]) + '삭제\n'     #!공지
 					command_list += ','.join(command[19]) + ' [할말]\n\n'     #!상태
 					command_list += ','.join(command[20]) + '\n'     #보스탐
 					command_list += ','.join(command[21]) + '\n'     #!보스탐
-					command_list += ','.join(command[24]) + '\n'     #!race
 					command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'     
 					command_list += '[보스명]no 또는 [보스명]no 0000, 00:00\n'     
 					command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
@@ -2360,7 +2356,27 @@ while True:
 					else:
 						await client.get_channel(channel).send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
 
-			
+			################ 킬삭제 ################ 
+			for command24 in command[24] :
+				if message.content.startswith(command24.strip()+' '):
+					tmp_sayMessage = message.content
+					sayMessage = tmp_sayMessage[len(command24.strip())+1:]
+
+					tmp_fk = []
+					indexchk = 0
+
+					if sayMessage != ' ':
+						for i in range(len(kill_Data)):
+							if sayMessage == kill_Data[i][0]:
+								indexchk = i + 1
+								
+						if indexchk != 0:
+							del(kill_Data[indexchk-1])
+							await client.get_channel(channel).send( '```<' + sayMessage + '> 킬 목록 삭제완료!\n```', tts=False)
+						else :				
+							await client.get_channel(channel).send( '```킬 목록에 등록되어 있지 않습니다!\n```', tts=False)
+					else:
+						await client.get_channel(channel).send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
 
 	client.loop.create_task(task())
 	try:
