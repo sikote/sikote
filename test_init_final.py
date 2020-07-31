@@ -796,7 +796,7 @@ async def JointheVC(VCchannel, TXchannel):
 		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
 
 	################ 경주 ################ 
-	@client.command(name=command[24][0], aliases=command[24][1:])
+	for command24 in command[24] :
 	async def race_(ctx):
 		if ctx.message.channel.id == basicSetting[7] or ctx.message.channel.id == basicSetting[19]:
 			msg = ctx.message.content[len(ctx.invoked_with)+1:]
@@ -1274,29 +1274,7 @@ while True:
 							else:
 								await msg.channel.send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
 
-					################ 킬삭제 ################ 
-					for command24 in command[24] :	
-						if message.content.startswith(command24.strip()+' '):
-							tmp_sayMessage = message.content
-							sayMessage = tmp_sayMessage[len(command24.strip())+1:]
 
-							tmp_fk = []
-							indexchk = 0
-
-							if sayMessage != ' ':
-								for i in range(len(kill_Data)):
-									if sayMessage == kill_Data[i][0]:
-										indexchk = i + 1
-										
-								if indexchk != 0:
-									del(kill_Data[indexchk-1])
-									await msg.channel.send( '```<' + sayMessage + '> 킬 목록 삭제완료!\n```', tts=False)
-								else :				
-									await msg.channel.send( '```킬 목록에 등록되어 있지 않습니다!\n```', tts=False)
-							else:
-								await msg.channel.send( '```제대로 된 아이디를 입력해주세요!\n```', tts=False)
-		else :
-			message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
 			for command2 in command[2] :	
