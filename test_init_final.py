@@ -1673,6 +1673,7 @@ while True:
 					command_list += ','.join(command[19]) + ' [할말]\n\n'     #!상태
 					command_list += ','.join(command[20]) + '\n'     #보스탐
 					command_list += ','.join(command[21]) + '\n'     #!보스탐
+					command_list += ','.join(command[27]) + '\n'     #!보스탐
 					command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'     
 					command_list += '[보스명]no 또는 [보스명]no 0000, 00:00\n'     
 					command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
