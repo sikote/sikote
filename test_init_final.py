@@ -1235,11 +1235,11 @@ class mainCog(commands.Cog):
 			command_list += ','.join(command[22]) + '\n'     #보스탐
 			command_list += ','.join(command[23]) + '\n'     #!보스탐
 			command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'  
-			command_list += '[보스명] cut 또는 [보스명] cut 0000, 00:00\n'   
-			command_list += '[보스명]no 또는 [보스명]no 0000, 00:00\n'     
+			command_list += '[보스명] 컷 또는 [보스명] 컷 0000, 00:00\n'   
+			command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
 			command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
 			command_list += '[보스명]del\n'     
-			command_list += '[보스명]memo [할말]\n'
+			command_list += '[보스명]메모 [할말]\n'
 			embed = discord.Embed(
 					title = "----- 명령어 -----",
 					description= '```' + command_list + '```',
@@ -2970,7 +2970,7 @@ class mainCog(commands.Cog):
 		if ctx.message.channel.id != basicSetting[7] and ctx.message.channel.id != basicSetting[19]:
 			return
 
-		message_rock_paper_scissors : discord.message.Message = await ctx.send("さいしょはぐちゃんけんぽ！")
+		message_rock_paper_scissors : discord.message.Message = await ctx.send("안내면 진거 가위바위..")
 		reaction_emoji : list = ["✌️", "✊", "✋"]
 
 		for emoji in reaction_emoji:
@@ -2981,23 +2981,23 @@ class mainCog(commands.Cog):
 		try:
 			reaction_result, user = await self.bot.wait_for('reaction_add', check = reaction_check, timeout = int(basicSetting[5]))
 		except asyncio.TimeoutError:
-			return await ctx.send(f"タイムオーバー ")
+			return await ctx.send(f"시간이 초과됐습니다. ")
 		
 		bot_result : str = random.choice(reaction_emoji)
 		result_rock_paper_scissors : str = ""
 		
 		if reaction_result is None:
-			result_rock_paper_scissors = f"早く出して"
+			result_rock_paper_scissors = f"왜 안냄?"
 		elif str(reaction_result) == bot_result:
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤔無勝負"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤔비겼다!"
 		elif str(reaction_result) == "✌️" and bot_result == "✋":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍good"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
 		elif str(reaction_result) == "✊" and bot_result == "✌️":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍good"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
 		elif str(reaction_result) == "✋" and bot_result == "✊":
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍good"
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n👍짝짝짝"
 		else:
-			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤪ara..."
+			result_rock_paper_scissors = f"봇 {bot_result} : {reaction_result} {ctx.author.mention}\n🤪저런.."
 
 		return await ctx.send(result_rock_paper_scissors)
 
@@ -3174,7 +3174,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 
 				for i in range(bossNum):
 					################ 보스 컷처리 ################ 
-					if message.content.startswith(bossData[i][0] +'cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +'cut')) or message.content.startswith(bossData[i][0] +' 컷') or message.content.startswith(convertToInitialLetters(bossData[i][0] +' 컷')):
+					if message.content.startswith(bossData[i][0] +'cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +'cut')) or message.content.startswith(bossData[i][0] +' cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +' cut')):
 						if hello.find('  ') != -1 :
 							bossData[i][6] = hello[hello.find('  ')+2:]
 							hello = hello[:hello.find('  ')]
@@ -3223,21 +3223,21 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 						embed = discord.Embed(
-								description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'desu```',
+								description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
 								color=0xff0000
 								)
 						await self.get_channel(channel).send(embed=embed, tts=False)
 
 					################ 보스 멍 처리 ################ 
 
-					if message.content.startswith(bossData[i][0] +'no') or message.content.startswith(bossData[i][0] +' no'):
+					if message.content.startswith(bossData[i][0] +'멍') or message.content.startswith(bossData[i][0] +' 멍'):
 						if hello.find('  ') != -1 :
 							bossData[i][6] = hello[hello.find('  ')+2:]
 							hello = hello[:hello.find('  ')]
 						else:
 							bossData[i][6] = ''
 							
-						tmp_msg = bossData[i][0] +'no'
+						tmp_msg = bossData[i][0] +'멍'
 						tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 
 						if len(hello) > len(tmp_msg) + 3 :
@@ -3272,7 +3272,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 							tmp_bossTimeString[i] = bossTimeString[i] = temptime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = temptime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
-									description= '```next ' + bossData[i][0] + ' ' + bossTimeString[i] + 'desu```',
+									description= '```다음 ' + bossData[i][0] + ' ' + bossTimeString[i] + '입니다.```',
 									color=0xff0000
 									)
 							await self.get_channel(channel).send(embed=embed, tts=False)
