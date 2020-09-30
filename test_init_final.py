@@ -1269,7 +1269,7 @@ class mainCog(commands.Cog):
 					)
 			embed.add_field(
 					name="----- 추가기능 -----",
-					value= '```- [보스명]cut/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능\n- [보스명]cut 명령어는 초성으로 입력가능합니다.\n  ex)' + bossData[0][0] + 'cut => ' + convertToInitialLetters(bossData[0][0] +'cut') + ', ' + bossData[0][0] + ' cut => ' + convertToInitialLetters(bossData[0][0] +' cut') + '```'
+					value= '```- [보스명]컷/멍/예상  [할말] : 보스시간 입력 후 빈칸 두번!! 메모 가능\n- [보스명]컷 명령어는 초성으로 입력가능합니다.\n  ex)' + bossData[0][0] + '컷 => ' + convertToInitialLetters(bossData[0][0] +'컷') + ', ' + bossData[0][0] + ' 컷 => ' + convertToInitialLetters(bossData[0][0] +' 컷') + '```'
 					)
 			await ctx.send( embed=embed, tts=False)
 		else:
@@ -3284,7 +3284,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 						else:
 							bossData[i][6] = ''
 							
-						tmp_msg = bossData[i][0] +'cut'
+						tmp_msg = bossData[i][0] +'컷'
 						if len(hello) > len(tmp_msg) + 3 :
 							if hello.find(':') != -1 :
 								chkpos = hello.find(':')
