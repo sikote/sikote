@@ -1257,7 +1257,7 @@ class mainCog(commands.Cog):
 			command_list += ','.join(command[22]) + '\n'     #보스탐
 			command_list += ','.join(command[23]) + '\n'     #!보스탐
 			command_list += '[보스명]cut 또는 [보스명]cut 0000, 00:00\n'  
-			command_list += '[보스명] cut 또는 [보스명] cut 0000, 00:00\n'   
+			command_list += '[보스명] 컷 또는 [보스명] 컷 0000, 00:00\n'   
 			command_list += '[보스명]멍 또는 [보스명]멍 0000, 00:00\n'     
 			command_list += '[보스명]예상 또는 [보스명]예상 0000, 00:00\n' 
 			command_list += '[보스명]del\n'     
@@ -3277,7 +3277,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 
 				for i in range(bossNum):
 					################ 보스 컷처리 ################ 
-					if message.content.startswith(bossData[i][0] +'cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +'cut')) or message.content.startswith(bossData[i][0] +' cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +' cut')):
+					if message.content.startswith(bossData[i][0] +'cut') or message.content.startswith(convertToInitialLetters(bossData[i][0] +'cut')) or message.content.startswith(bossData[i][0] +' 컷') or message.content.startswith(convertToInitialLetters(bossData[i][0] +' 컷')):
 						if hello.find('  ') != -1 :
 							bossData[i][6] = hello[hello.find('  ')+2:]
 							hello = hello[:hello.find('  ')]
